@@ -4,15 +4,15 @@ class XGBoostModelService:
         
 
     def load(self):
-        from common.load_models import load_xgb_model
+        from ..common.load_models import load_xgb_model
         if self.model is None:
             self.model = load_xgb_model()
         return self.model
 
 
     def predict(self, test_case):
-        from common.predict_results import get_water_predicted
-        from common.load_models import load_xgb_model
+        from ..common.predict_results import get_water_predicted
+        from ..common.load_models import load_xgb_model
         if self.model is None:
             self.model = load_xgb_model()
         return get_water_predicted(self.model, test_case)
