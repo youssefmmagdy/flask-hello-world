@@ -1,1 +1,15 @@
 Flask==3.0.3
+flask_cors
+uvicorn
+numpy
+pandas
+matplotlib
+scikit-learn
+xgboost
+tensorflow==2.19.0
+joblib
+requests
+pydantic
+python-dotenv
+pymongo
+statsmodels
