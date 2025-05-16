@@ -1,13 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from schemas.predict_schema import PredictionInput
-from services.model_dnn import DNNModelService
-from services.model_dt import DTModelService
-from services.model_rf import RFModelService
-from services.model_xgboost import XGBoostModelService
-from services.model_sarimax import SARIMAXModelService
-from services.model_svm import SVMModelService
-from services.actual_result import ActualResultService
+from .services.model_dnn import DNNModelService
+from .services.model_dt import DTModelService
+from .services.model_rf import RFModelService
+from .services.model_xgboost import XGBoostModelService
+from .services.model_sarimax import SARIMAXModelService
+from .services.model_svm import SVMModelService
+from .services.actual_result import ActualResultService
 
 app = Flask(__name__)
 CORS(app)
@@ -90,3 +89,7 @@ def predict(model_id):
         return jsonify({"amount": float(ActualResultService().compute(data))})
     else:
         return jsonify({"error": f"Model '{model_id}' is not supported"}), 400
+    
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
