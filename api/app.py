@@ -90,8 +90,3 @@ def predict(model_id):
     else:
         return jsonify({"error": f"Model '{model_id}' is not supported"}), 400
     
-
-if __name__ == '__main__':
-    import os
-    port = int(os.environ.get('PORT', 8080))
-    app.run(host='0.0.0.0', port=port)

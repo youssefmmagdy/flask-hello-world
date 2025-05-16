@@ -1,6 +1,7 @@
 Flask==3.0.3
 flask_cors
 uvicorn
+gunicorn
 numpy
 scikit-learn
 tensorflow==2.19.0
