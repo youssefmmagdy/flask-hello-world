@@ -71,22 +71,34 @@ def predict(model_id):
         return jsonify({"amount": float(x)})
     elif model_id == "dt":
         x = dt_service.predict(data)
+        if x is None:
+            return jsonify({"amount": None})
         return jsonify({"amount": float(x)})
     elif model_id == "rf":
         x = rf_service.predict(data)
+        if x is None:
+            return jsonify({"amount": None})
         return jsonify({"amount": float(x)})
     elif model_id == "sarimax":
         x = sarimax_service.predict(data)
+        if x is None:
+            return jsonify({"amount": None})
         return jsonify({"amount": float(x)})
     elif model_id == "svm":
-        return jsonify({"amount": svm_service.predict(data)})
+        x = svm_service.predict(data)
+        if x is None:
+            return jsonify({"amount": None})
+        return jsonify({"amount": float(x)})
     elif model_id == "xgboost":
         x = xgboost_service.predict(data)
         if x is None:
             return jsonify({"amount": None})
         return jsonify({"amount": float(x)})
     elif model_id == "actual":
-        return jsonify({"amount": float(ActualResultService().compute(data))})
+        x = ActualResultService().get_actual_result(data)
+        if x is None:
+            return jsonify({"amount": None})
+        return jsonify({"amount": float(x)})
     else:
         return jsonify({"error": f"Model '{model_id}' is not supported"}), 400
     
