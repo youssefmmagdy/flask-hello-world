@@ -1,5 +1,5 @@
 import math
-from ..common.test_case import get_test_case
+from api.common.test_case import get_test_case
 
 class ActualResultService:
     def __init__(self):

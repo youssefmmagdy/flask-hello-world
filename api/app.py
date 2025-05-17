@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from .services.model_dnn import DNNModelService
-from .services.model_dt import DTModelService
-from .services.model_rf import RFModelService
-from .services.model_xgboost import XGBoostModelService
-from .services.model_sarimax import SARIMAXModelService
-from .services.model_svm import SVMModelService
-from .services.actual_result import ActualResultService
+from api.services.model_dnn import DNNModelService
+from api.services.model_dt import DTModelService
+from api.services.model_rf import RFModelService
+from api.services.model_xgboost import XGBoostModelService
+from api.services.model_sarimax import SARIMAXModelService
+from api.services.model_svm import SVMModelService
+from api.services.actual_result import ActualResultService
 
 app = Flask(__name__)
 CORS(app)
