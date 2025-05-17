@@ -1,4 +1,5 @@
 import math
+from ..common.test_case import get_test_case
 
 class ActualResultService:
     def __init__(self):
@@ -166,7 +167,6 @@ def calculate_soil_moisture_delta_from_df_row(row, altitude=0):
     return round(delta_soil_moisture, 2)
 
 def get_actual_water(test_case):
-    from common.test_case import get_test_case
     
     test_case = get_test_case(test_case)
     if test_case is None:
